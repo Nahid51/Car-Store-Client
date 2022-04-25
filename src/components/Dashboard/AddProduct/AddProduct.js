@@ -27,8 +27,9 @@ const AddProduct = () => {
             .then(data => {
                 if (data.insertedId) {
                     Swal.fire({
+                        position: 'center',
                         icon: 'success',
-                        title: 'A doctor has been successfully added!',
+                        title: 'A product has been successfully added!',
                         showConfirmButton: false,
                         timer: 2000
                     });

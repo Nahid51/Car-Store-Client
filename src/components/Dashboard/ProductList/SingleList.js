@@ -3,10 +3,50 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import { Button, CardActions } from '@mui/material';
+import Swal from 'sweetalert2';
+import { NavLink } from 'react-router-dom';
 
 
 const SingleList = ({ pd }) => {
-    const { image, description, name } = pd;
+    const { _id, image, description, name } = pd;
+
+    const handleDelete = id => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to delete this file!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        })
+            .then((result) => {
+                if (result.isConfirmed) {
+                    fetch(`http://localhost:5000/products/${id}`, {
+                        method: 'DELETE',
+                        headers: { 'content-type': 'application/json' },
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.deletedCount) {
+                                Swal.fire({
+                                    position: 'center',
+                                    icon: 'success',
+                                    title: 'The product has been successfully deleted!',
+                                    showConfirmButton: false,
+                                    timer: 2000
+                                });
+                                if (Swal) {
+                                    setTimeout(() => {
+                                        window.location.reload();
+                                    }, 2000);
+                                }
+                            }
+                        })
+                }
+            })
+    }
     return (
         <div>
             <Card sx={{ maxWidth: 345 }}>
@@ -24,6 +64,12 @@ const SingleList = ({ pd }) => {
                         {description}
                     </Typography>
                 </CardContent>
+                <CardActions>
+                    <NavLink style={{ textDecoration: 'none' }} to={`/dashboard/products/update/${_id}`}>
+                        <Button size="small">Update</Button>
+                    </NavLink>
+                    <Button onClick={() => handleDelete(_id)} size="small">Delete</Button>
+                </CardActions>
             </Card>
         </div>
     );

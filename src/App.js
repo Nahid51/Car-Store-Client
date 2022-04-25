@@ -13,6 +13,7 @@ import DashboardMain from './components/Dashboard/DashboardMain/DashboardMain';
 import UserList from './components/Dashboard/UserList/UserList';
 import ProductList from './components/Dashboard/ProductList/ProductList';
 import AddProduct from './components/Dashboard/AddProduct/AddProduct';
+import UpdateProduct from './components/Dashboard/UpdateProduct/UpdateProduct';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
               <Route path="/dashboard" element={<UserList />} />
               <Route path="/dashboard/bookinglist" element={<ProductList />} />
               <Route path="/dashboard/addProduct" element={<AddProduct />} />
+              <Route path="/dashboard/products/update/:id" element={<UpdateProduct />} />
             </Route>
           </Routes>
         </BrowserRouter>
