@@ -18,8 +18,8 @@ const Header = () => {
                     <Container maxWidth="xl">
                         <Toolbar className='responsive'>
                             <NavLink to="/" style={{ textDecoration: 'none' }}>
-                                <Typography variant="h6" sx={{ flexGrow: 1, color: 'white' }}>
-                                    App Store
+                                <Typography variant="h6" sx={{ flexGrow: 1, color: 'white', fontWeight: 'bold' }}>
+                                    Car Store
                                 </Typography>
                             </NavLink>
                             <Box sx={{ ml: 'auto', display: 'flex' }}>
