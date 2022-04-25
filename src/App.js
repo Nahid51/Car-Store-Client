@@ -1,23 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import Home from './components/Home/Home/Home';
+import AuthProvider from './context/AuthProvider';
+import Register from './loginRegister/Register';
+import Login from './loginRegister/Login';
+import PrivateRoute from './Redirects/PrivateRoute';
+import DashboardMain from './components/Dashboard/DashboardMain/DashboardMain';
+import UserList from './components/Dashboard/UserList/UserList';
+import ProductList from './components/Dashboard/ProductList/ProductList';
+import AddProduct from './components/Dashboard/AddProduct/AddProduct';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/dashboard" element={<PrivateRoute><DashboardMain /></PrivateRoute>}>
+              <Route path="/dashboard" element={<UserList />} />
+              <Route path="/dashboard/bookinglist" element={<ProductList />} />
+              <Route path="/dashboard/addProduct" element={<AddProduct />} />
+              {/*<Route path="/dashboard/bookinglist/:id" element={<BookingList />} />
+              <Route path="/dashboard/review" element={<Review />} />
+              <Route path="/dashboard/orderlist" element={<AdminRoute><OrderList /></AdminRoute>} />
+              <Route path="/dashboard/makeadmin" element={<AdminRoute><MakeAdmin /></AdminRoute>} />
+              <Route path="/dashboard/manageservice" element={<AdminRoute><ManageService /></AdminRoute>} /> */}
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }
