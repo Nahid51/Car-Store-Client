@@ -19,7 +19,7 @@ const AddProduct = () => {
         formData.append('description', description);
         formData.append('image', image);
 
-        fetch('http://localhost:5000/products', {
+        fetch('https://cryptic-oasis-68865.herokuapp.com/products', {
             method: 'POST',
             body: formData
         })

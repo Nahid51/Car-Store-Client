@@ -11,7 +11,7 @@ const UpdateProduct = () => {
     const [singleProduct, setSingleProduct] = useState({});
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://cryptic-oasis-68865.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
@@ -24,7 +24,7 @@ const UpdateProduct = () => {
 
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://cryptic-oasis-68865.herokuapp.com/products/${id}`, {
             method: 'PUT',
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data)

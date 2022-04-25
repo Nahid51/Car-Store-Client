@@ -23,7 +23,7 @@ const SingleList = ({ pd }) => {
         })
             .then((result) => {
                 if (result.isConfirmed) {
-                    fetch(`http://localhost:5000/products/${id}`, {
+                    fetch(`https://cryptic-oasis-68865.herokuapp.com/products/${id}`, {
                         method: 'DELETE',
                         headers: { 'content-type': 'application/json' },
                     })
