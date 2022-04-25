@@ -5,28 +5,9 @@ import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 import register from '../images/register.jpg';
 import Header from '../components/Home/Header/Header';
+import Swal from 'sweetalert2';
 
 const Register = () => {
-    // const [loginData, setLoginData] = useState({});
-    // const history = useHistory();
-    // const { user, registerUser, isLoading, authError } = useAuth();
-
-    // const handleOnBlur = e => {
-    //     const field = e.target.name;
-    //     const value = e.target.value;
-    //     const newLoginData = { ...loginData };
-    //     newLoginData[field] = value;
-    //     console.log(newLoginData);
-    //     setLoginData(newLoginData);
-    // }
-    // const handleLoginSubmit = e => {
-    //     e.preventDefault();
-    //     if (loginData.password !== loginData.password2) {
-    //         alert('Your password did not match');
-    //         return
-    //     }
-    //     registerUser(loginData.email, loginData.password, loginData.name, history);
-    // }
 
     const [loginData, setLoginData] = useState({});
     const { user, userRegistration, isLoading, error } = useAuth();
@@ -46,7 +27,12 @@ const Register = () => {
     const handleRegisterButton = e => {
         e.preventDefault();
         if (loginData.password !== loginData.password2) {
-            alert('Your password did not match.')
+            Swal.fire({
+                icon: 'error',
+                title: 'Your password did not match!',
+                showConfirmButton: false,
+                timer: 2000
+            });
             return
         }
         userRegistration(loginData?.email, loginData?.password, loginData.name, location, navigate);

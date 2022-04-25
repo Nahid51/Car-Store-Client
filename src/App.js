@@ -27,11 +27,6 @@ function App() {
               <Route path="/dashboard" element={<UserList />} />
               <Route path="/dashboard/bookinglist" element={<ProductList />} />
               <Route path="/dashboard/addProduct" element={<AddProduct />} />
-              {/*<Route path="/dashboard/bookinglist/:id" element={<BookingList />} />
-              <Route path="/dashboard/review" element={<Review />} />
-              <Route path="/dashboard/orderlist" element={<AdminRoute><OrderList /></AdminRoute>} />
-              <Route path="/dashboard/makeadmin" element={<AdminRoute><MakeAdmin /></AdminRoute>} />
-              <Route path="/dashboard/manageservice" element={<AdminRoute><ManageService /></AdminRoute>} /> */}
             </Route>
           </Routes>
         </BrowserRouter>

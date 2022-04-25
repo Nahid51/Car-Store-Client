@@ -99,14 +99,14 @@ const useFirebase = () => {
 
     //make secure for admin
     useEffect(() => {
-        fetch(`https://shrouded-hamlet-53510.herokuapp.com/users/${user?.email}`)
+        fetch(`http://localhost:5000/users/${user?.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user?.email]);
 
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('https://shrouded-hamlet-53510.herokuapp.com/users', {
+        fetch('http://localhost:5000/users', {
             method: method,
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(user)

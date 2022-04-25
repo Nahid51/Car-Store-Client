@@ -25,13 +25,14 @@ const AddProduct = () => {
         })
             .then(res => res.json())
             .then(data => {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'A product has been successfully added!',
-                    showConfirmButton: false,
-                    timer: 2000
-                });
+                if (data.insertedId) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'A doctor has been successfully added!',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                }
             })
     }
 
