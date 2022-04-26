@@ -27,7 +27,7 @@ function DashboardMain(props) {
     const drawer = (
         <div style={{ marginLeft: '50px' }}>
             <NavLink to="/" >
-                <Typography sx={{ fontWeight: 'bold', fontSize: 24, textDecoration: 'none', color: 'black', margin: "20px 0" }}>AppStore</Typography>
+                <Typography sx={{ fontWeight: 'bold', fontSize: 24, textDecoration: 'none', color: 'black', margin: "20px 0" }}>CarStore</Typography>
             </NavLink>
             <List>
                 <NavLink style={{ textDecoration: 'none', color: '#322A62' }} to="/dashboard">User List</NavLink>

@@ -13,7 +13,7 @@ const Header = () => {
     const { user, logOut } = useAuth();
     return (
         <div>
-            <Box sx={{ flexGrow: 1, mb: 5 }}>
+            <Box sx={{ flexGrow: 1 }}>
                 <AppBar position="static">
                     <Container maxWidth="xl">
                         <Toolbar className='responsive'>

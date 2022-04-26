@@ -1,0 +1,72 @@
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    background-color: black;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 90vh;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.setPosition {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 70%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: transparent;
+    color: white;
+}
+
+@media only screen and (max-width: 600px) {
+    .swiper-slide img {
+        width: 95%;
+        margin: auto;
+        height: 100% !important;
+    }
+
+    .setPosition {
+        transform: translate(-50%, 0%);
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+    .swiper-slide img {
+        width: 95%;
+        margin: auto;
+        height: 50vh !important;
+    }
+
+    .setPosition {
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media only screen and (max-width: 480px) {
+
+    .setPosition {
+        transform: translate(-50%, -50%);
+    }
+}
